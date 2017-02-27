@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note default='true' class='view' xmlns='http://www.lotus.com/dxl' version='9.0'
+ maintenanceversion='1.7' replicaid='862580CD0078D072'>
+<noteinfo noteid='11e' unid='B1E292E4FDF66D67492580CD006340FA' sequence='3'>
+<created><datetime>20170221T030406,98+09</datetime></created>
+<modified><datetime dst='true'>20170220T165938,85-05</datetime></modified>
+<revised><datetime>20170221T034648,66+09</datetime></revised>
+<lastaccessed><datetime dst='true'>20170220T165950,66-05</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20170220T165938,85-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=administrator/O=MandI</name><name>CN=acchan_jp_ibm_com/O=Bluemix</name></updatedby>
+<wassignedby><name>CN=acchan_jp_ibm_com/O=Bluemix</name></wassignedby>
+<item name='$FormulaClass'><text>1</text></item>
+<item name='$TITLE' sign='true'><text>($All)</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+KAAFABoAFQACAAkABAAkQ29uZmxpY3QkUkVGAAQABAAAAAgAZgADAA==
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+BgAAAABE
+</rawitemdata></item>
+<item name='$ViewFormat' summary='true' sign='true'>
+<rawitemdata type='5'>
+AQABAAEACAAAAFZDAAACAAEACgAKAFAAAQAACgAAAAAAAAAAAAICAAAAJDAjCgAAAAgAkgADAAEF
+AQAEAH9BMP8mAAEAAAABAQAJAQAACgEBDgoAAAEArSsBAAEAAQAAAAAAAAAAAFdDAQEACQAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAABCABAAAAABAP///wAFAP///wABAAAA
+AAAAAAAAAAAAAAEA////AAEA////AAAAAQAAAAAAAQAAAAAAAQAAAAAAAAAIAAAAAAABAA==
+</rawitemdata></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$Flags'><text>Y</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$V5ACTIONS' sign='true'>
+<rawitemdata type='1'>
+vRw/AAAAAQABAAAAAQAAAAAAAAAAAAAACAACAHn/bAABAPDw8AABAAAAAAAJAAAAAAABAPDw8AAA
+ACkAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPz/OgAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAC+/yQAAAAFAAAAnQEAAAoAAAAAAAAAEJWqEJfeKF9aKQEA
+Tny+/y4AAAAFAAAAnQEAABMAAAAAAAAAEJW2EI+REILMEJXSEI9XKF9FKQACAAIKvv8uAAAABQAA
+AJ0BAAATAAAAAAAAABCVthCPkRCCzBCRlxCQTShfUykAAwADCr7/JAAAAAUAAACdAQAACgAAAAAA
+AAAQk10QkZcoX0YpBAAECr7/NgAAAAUAAACdAQAAHAAAAAAAAAAQg3QQg0gQg4sQg18QgtYQiNoQ
+k64oX00pLi4uBQA9fL7/NgAAAAUAAACdAQAAHAAAAAAAAAAQg3QQg0gQg4sQg18QgqkQgucQje0Q
+j5woX1IpBgA+fL7/JAAAAAUAAACdAQAACgAAAAAAAAAQivkQk8coX1IpBwBefL7/JAAAAAUAAACd
+AQAACgAAAAAAAAAQlqIQk8coX1UpCABufL7/PAAAAAUAAACdAQAAIgAAAAAAAAAQkFYQi0sQg0UQ
+g0IQg5MQg2gQg0UQgsUQikoQgq0oX08pCQB+fL7/KAAAAAUAAACdAQAADQAAAAAAAAAQiPMQjfwo
+X1ApLi4uAAoAjny+/yQAAAAFAAAAnQEAAAoAAAAAAAAAEI3tEI+cKF9EKQsAnny+/zYAAAAFAAAA
+nQEAABwAAAAAAAAAEJW2EI+REILMEIN2EIONEINwEINlEINCKF9EKQwArny+/yoAAAAFAAAAnQEA
+ABAAAAAAAAAAEJDYEILoEI7mEILoKF9VKQ0Avny+/ygAAAAFAAAAnQEAAA0AAAAAAAAAEINSEINz
+EIFbKF9DKQoOAM58vv9AAAAABQAAAJ0BAAAlAAAAAAAAABCVthCPkRCDihCDkxCDThCCxhCCtRCC
+xBCDUhCDcxCBWyhfTCkADwDefL7/NAAAAAUAAACdAQAAGQAAAAAAAAAQlVwQgsYQgrUQgsQQg1IQ
+g3MQgVsoX1QpABAA7ny+/yoAAAAFAAAAnQEAABAAAAAAAAAAEJNcEILoEJV0EIKvKF9BKREA/ny+
+/yQAAAAFAAAAnQEAAAoAAAAAAAAAEIpKEIKtKF9PKRIADn2+/ywAAAAFAAAAnQEAABIAAAAAAAAA
+EIN1EINiEINOEIN9EIFbEINOEwAefQ==
+</rawitemdata></item></note>
+

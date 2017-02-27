@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.7" replicaid="862580CD0078D072" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="14e" sequence="8" unid="B98EA95E90BEC77C492580CD006456D7">
+<created><datetime>20170221T031558,31+09</datetime></created>
+<modified><datetime dst="true">20170220T165941,50-05</datetime></modified>
+<revised><datetime>20170221T034648,84+09</datetime></revised>
+<lastaccessed><datetime dst="true">20170220T165941,50-05</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20170220T165941,50-05</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=administrator/O=MandI</name><name>CN=acchan_jp_ibm_com/O=Bluemix</name></updatedby>
+<wassignedby><name>CN=acchan_jp_ibm_com/O=Bluemix</name></wassignedby>
+<item name="$Flags"><text>gC~4K</text></item>
+<item name="$TITLE"><text>xpTroubleTicket.xsp</text></item>
+
+
+<item name="$FileNames" sign="true"><text>xpTroubleTicket.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5</text></item>
+
+
+
+
+</note>

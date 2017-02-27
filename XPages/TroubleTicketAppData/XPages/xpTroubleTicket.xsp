@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+	<xp:this.data>
+		<xp:dominoView var="view1" viewName="vwTroubleTiket"></xp:dominoView>
+	</xp:this.data>
+
+	
+	<xp:table style="width:99.0%">
+		<xp:tr>
+			<xp:td>
+				<xp:label id="label1" value="Title"></xp:label></xp:td>
+			<xp:td>
+				<xp:label value="ラベル" id="label2"></xp:label></xp:td>
+			<xp:td>
+				<xp:label id="label3" value="Status"></xp:label></xp:td>
+			<xp:td>
+				<xp:label value="Date" id="label4"></xp:label></xp:td>
+			<xp:td>
+				<xp:label value="Resolver" id="label5"></xp:label></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+	<xp:repeat id="repeat1" rows="30" value="#{view1}" var="viewEntry">
+			<xp:tr>
+			<xp:td>
+				<xp:link escape="true" id="link1" text="#{javascript:viewEntry.getDocument().getItemValueString('Title');}"></xp:link></xp:td>
+			<xp:td></xp:td>
+			<xp:td>
+				<xp:image url="/vwicn115.gif" id="image1"></xp:image></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+			<xp:td>
+				<xp:button value="ラベル" id="button1"></xp:button></xp:td>
+			<xp:td>
+				<xp:button value="ラベル" id="button2"></xp:button></xp:td>
+			<xp:td>
+				<xp:button value="ラベル" id="button3"></xp:button></xp:td>
+			<xp:td></xp:td>
+			<xp:td></xp:td>
+		</xp:tr>
+	
+	</xp:repeat>
+	
+	</xp:table>
+
+
+
+
+
+
+</xp:view>
