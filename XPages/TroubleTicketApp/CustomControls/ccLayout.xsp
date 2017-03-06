@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom"
+	afterPageLoad="#{javascript:viewScope.pageTitle=compositeData.pageTitle}"
+	xmlns:xp_1="http://www.ibm.com/xsp/coreex">
+	
+	<xp:this.resources>
+		<xp:headTag tagName="meta">
+			<xp:this.attributes>
+				<xp:parameter name="name" value="viewport" />
+				<xp:parameter name="content"
+					value="width=device-width, initial-scale=1" />
+			</xp:this.attributes>
+		</xp:headTag>
+	</xp:this.resources>
+	<xc:ccJQuery></xc:ccJQuery>
+
+	<xp:div styleClass="wrapper" id="wrapper">
+
+		<!-- Main Header -->
+		<header class="main-header">
+
+			<!-- Logo -->
+			<a href="login.xsp" class="logo">
+				<!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini">
+					TTA
+				</span>
+				<!-- logo for regular state and mobile devices -->
+				<span class="logo-lg">
+					TroubleTicketApp
+				</span>
+			</a>
+
+			<!-- Header Navbar -->
+			<nav class="navbar navbar-static-top" role="navigation">
+				<!-- Sidebar toggle button-->
+				<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+					<span class="sr-only">Toggle navigation</span>
+				</a>
+				<!-- Navbar Right Menu -->
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<li class="dropdown messages-menu">
+							<!-- Menu toggle button -->
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<i class="fa fa-database"></i>
+								<span
+									class="label label-#{(cloudantService.connected)?'success':'danger'}">
+									&#160;&#160;&#160; </span>
+							</a>
+							<ul class="dropdown-menu">
+								<li>
+									<ul class="menu">
+										<li style="margin:20px;">
+											<xp:button value="Connection to WWS" id="buttonTestConnection"
+												styleClass="btn btn-primary" disabled="#{cloudantService.connected}">
+												
+											<xp:eventHandler
+												event="onclick" submit="true" refreshMode="complete">
+												<xp:this.action><![CDATA[#{javascript:var endpoint = new org.opencode4workspace.endpoints.WWAuthenticationEndpoint();
+var userToken = "";
+var appId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
+var appSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+var client = new org.opencode4workspace.WWClient.buildClientApplicationAccess(appId, appSecret, endpoint);
+if(client){
+	print("in");
+	client.authenticate();
+	sessionScope.client = client;
+	postScript("Connected to WSS with Authentication");
+}}]]></xp:this.action>
+											</xp:eventHandler></xp:button>
+										</li>
+									</ul>
+								</li>
+								<li class="footer"></li>
+							</ul>
+						</li>
+
+						<!-- User Account Menu -->
+						<li class="dropdown user user-menu">
+
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+								<!-- The user image in the navbar-->
+
+								<xp:text id="navbar-username" value="Admin"
+									styleClass="hidden-xs">
+								</xp:text>
+
+							</a>
+							<ul class="dropdown-menu">
+								<!-- Menu Body -->
+
+								<!-- Menu Footer-->
+								<li class="user-footer">
+									<div class="pull-left">
+									</div>
+									<div class="pull-right">
+
+									</div>
+								</li>
+							</ul>
+						</li>
+						<!-- Control Sidebar Toggle Button -->
+						<li>
+							<a href="#" data-toggle="control-sidebar">
+								<i class="fa fa-gears"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+		<aside class="main-sidebar">
+
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar">
+
+				<!-- Sidebar user panel (optional) -->
+				<div class="user-panel">
+					<div class="pull-left image">
+					</div>
+					<div class="pull-left info">
+						<xp:text id="computedField3" value=""
+							tagName="p">
+						</xp:text>
+						<!-- Status -->
+						<a href="#">
+							<i class="fa fa-circle text-success"></i>
+							Online
+						</a>
+					</div>
+				</div>
+<!-- 
+				<xc:ccLayoutLeftMenu></xc:ccLayoutLeftMenu>
+ -->
+				<!-- /.sidebar-menu -->
+			</section>
+			<!-- /.sidebar -->
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<xp:div styleClass="content-wrapper" id="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					<xp:text escape="true" id="computedField1" value="${compositeData.pageTitle}">
+					</xp:text>
+					<xp:text escape="true" id="computedField2" value="${compositeData.pageSubTitle}"
+						tagName="small">
+					</xp:text>
+
+				</h1>
+				<!--
+					<ol class="breadcrumb"> <li> <a href="#"> <i class="fa
+					fa-dashboard"></i> Level </a> </li> <li class="active">Here</li>
+					</ol>
+				-->
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+
+				<!-- Your Page Content Here -->
+				<xp:callback facetName="Content" id="callback1"></xp:callback>
+			</section>
+			<!-- /.content -->
+		</xp:div>
+		<!-- /.content-wrapper -->
+
+		<!-- Main Footer -->
+		<footer class="main-footer">
+			<!-- To the right -->
+			<div class="pull-right hidden-xs">
+			</div>
+			<!-- Default to the left -->
+
+		</footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<!-- Create the tabs -->
+			<ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+				<!-- <li class="active">
+					<a href="#control-sidebar-test-tab" data-toggle="tab">
+						<i class="fa fa-check"></i>
+					</a>
+				</li> -->
+				<li class="active">
+					<a href="#control-sidebar-settings-tab" data-toggle="tab">
+						<i class="fa fa-gears"></i>
+					</a>
+				</li>
+			</ul>
+			<!-- Tab panes -->
+			 <div class="tab-content">
+			<!--	<div class="tab-pane active" id="control-sidebar-test-tab">
+					<h3 class="control-sidebar-heading">JUnit Tests</h3>
+					This will test the configuration controller
+					<xp:div id="pnlTest">
+						<xp:button value="Run test" id="button1" styleClass="btn btn-warning"
+							style="margin-bottom:10px;">
+							<xp:eventHandler event="onclick" submit="true"
+								onStart="waitingDialog.show('testing...')" onComplete="waitingDialog.hide()"
+								refreshMode="partial" refreshId="pnlTest" immediate="true"
+								execMode="partial" execId="pnlTest">
+								<xp:this.action>
+									<xp:executeScript script="#{testConfiguration.test}">
+									</xp:executeScript>
+								</xp:this.action>
+							</xp:eventHandler>
+						</xp:button>
+						<xp:messages id="pnlTestResults" styleClass="alert alert-danger">
+						</xp:messages>
+					</xp:div>
+
+					<h3 class="control-sidebar-heading">
+						IBM Watson Test
+					</h3>
+					This will analize the tone..
+					<xp:div id="pnlWatsonTone">
+						<xp:button value="Run test" id="button2" styleClass="btn btn-warning"
+							style="margin-bottom:10px;">
+							<xp:eventHandler event="onclick" submit="true"
+								onStart="waitingDialog.show('analyzing...')" onComplete="waitingDialog.hide()"
+								refreshMode="partial" refreshId="pnlWatsonTone" immediate="true"
+								execMode="partial" execId="pnlWatsonTone">
+								<xp:this.action>
+									<xp:executeScript script="#{toneAnalyzerService.analyzeTone}">
+									</xp:executeScript>
+								</xp:this.action>
+							</xp:eventHandler>
+						</xp:button>
+						<xp:messages id="pnlWatsonResponse" styleClass="alert alert-danger">
+						</xp:messages>
+					</xp:div>
+				</div>
+ -->
+
+				<!-- /.tab-pane -->
+				<!-- Settings tab content -->
+				<div class="tab-pane active" id="control-sidebar-settings-tab">
+					<!-- 	<form method="post"> -->
+					<h3 class="control-sidebar-heading">
+						Configuration
+					</h3>
+
+					<div class="form-group">
+						<p>
+
+						</p>
+					</div>
+					<!-- /.form-group -->
+					<!-- </form> -->
+				</div>
+				<!-- /.tab-pane -->
+			</div>
+		</aside>
+		<!-- /.control-sidebar -->
+		<!--
+			Add the sidebar's background. This div must be placed immediately
+			after the control sidebar
+		-->
+		<div class="control-sidebar-bg"></div>
+	</xp:div>
+
+	<xp:scriptBlock id="scriptBlock1">
+		<xp:this.value><![CDATA[ 
+		  window.onunload = waitingDialog.hide();
+		  window.onload = waitingDialog.hide(); ]]></xp:this.value>
+	</xp:scriptBlock>
+ 
+</xp:view>

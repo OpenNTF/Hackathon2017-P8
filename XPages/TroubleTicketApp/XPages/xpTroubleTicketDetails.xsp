@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+	<xp:this.data>
+		<xp:dominoDocument var="document1" formName="fmTroubleTicket"
+			computeWithForm="both"
+			databaseName="#{javascript:bluemixContext.isRunningOnBluemix()? bluemixContext.getDataService().findDatabaseName() : 'TroubleTicketApp.nsf'}"
+			>
+		</xp:dominoDocument>
+	</xp:this.data>
+
+	<xp:this.resources>
+		<xp:styleSheet href="/formStyle.css"></xp:styleSheet>
+	</xp:this.resources>
+	
+	
+		
+	<xc:ccLayout pageTitle="DashBoard">
+		<xp:this.facets>
+			<xp:panel xp:key="Content">
+				<div class="box-header">
+					<xp:text escape="true" id="computedField1" tagName="h3"
+						styleClass="box-title" value="Hackathon Trouble Ticket System"></xp:text>
+				</div>
+				<!-- /.box-header -->
+
+				<div class="box-body">
+
+
+	<xp:text escape="true" id="computedField2" value="#{javascript:@DbTitle();}"
+		tagName="h1">
+	</xp:text>
+	
+	
+	<xp:text escape="true" id="title" value="#{javascript:'Detail'}"
+		tagName="h1">
+	</xp:text>
+
+
+	<xp:table styleClass="table-sp" style="width:99%">
+		<xp:tr>
+			<xp:td style="width:200px">
+				<xp:label value="Incident num:" id="incidentNum_Label1"
+					for="incidentNum1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.IncidentNum}"
+					id="incidentNum1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Date:" id="date_Label1" for="date1"></xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.Date}" id="date1"></xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Title:" id="title_Label1"
+					for="title1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.Title}" id="title1"></xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Sensor num:" id="sensorNum_Label1"
+					for="sensorNum1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.SensorNum}"
+					id="sensorNum1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Trouble:" id="trouble_Label1"
+					for="trouble1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.Trouble}"
+					id="trouble1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Status:" id="status_Label1"
+					for="status1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.Status}"
+					id="status1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="Resolver:" id="resolver_Label1"
+					for="resolver1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.Resolver}"
+					id="resolver1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td>
+				<xp:label value="History:" id="history_Label1"
+					for="history1">
+				</xp:label>
+			</xp:td>
+			<xp:td>
+				<xp:inputText value="#{document1.History}"
+					id="history1">
+				</xp:inputText>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
+	
+	
+
+
+				</div>
+
+
+			</xp:panel>
+		</xp:this.facets>
+	</xc:ccLayout>
+	
+</xp:view>

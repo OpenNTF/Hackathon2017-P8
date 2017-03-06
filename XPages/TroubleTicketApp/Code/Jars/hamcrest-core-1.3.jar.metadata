@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.6" replicaid="492580DB005DD8E0" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="186" sequence="3" unid="0F60631B5B079298492580CD00753A6B">
+<created><datetime>20170221T062026,67+09</datetime></created>
+<modified><datetime>20170307T020504,28+09</datetime></modified>
+<revised><datetime>20170221T062116,26+09</datetime></revised>
+<lastaccessed><datetime>20170307T020504,28+09</datetime></lastaccessed>
+<addedtofile><datetime>20170307T020504,28+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Kazunori Tatsuki/O=Ktrick</name></updatedby>
+<wassignedby><name>CN=Kazunori Tatsuki/O=Ktrick</name></wassignedby>
+<item name="$TITLE"><text>hamcrest-core-1.3.jar</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+<item name="$Flags"><text>34567Cg~,</text></item>
+
+
+
+<item name="$FileNames" sign="true"><text>hamcrest-core-1.3.jar</text></item></note>

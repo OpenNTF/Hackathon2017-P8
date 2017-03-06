@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xp:this.data>
+		<xp:dominoView var="view1" viewName="vwTroubleTiket"
+		databaseName="#{javascript:bluemixContext.isRunningOnBluemix()? bluemixContext.getDataService().findDatabaseName() : 'TroubleTicketApp.nsf'}"
+		>
+		</xp:dominoView>
+	</xp:this.data>
+
+	<xp:this.resources>
+		<xp:script src="/mqttws31.js" clientSide="true"></xp:script>
+		<xp:script src="/date.js" clientSide="true"></xp:script>
+		<xp:script src="/sp_mqtt_bb8.js" clientSide="true"></xp:script>
+		<xp:styleSheet href="/viewStyle.css"></xp:styleSheet>
+	</xp:this.resources>
+	
+	<xc:ccLayout pageTitle="DashBoard">
+		<xp:this.facets>
+			<xp:panel xp:key="Content">
+				<div class="box-header">
+					<xp:text escape="true" id="computedField1"
+						tagName="h3" styleClass="box-title"
+						value="Hackathon Trouble Ticket System">
+					</xp:text>
+				</div>
+				<!-- /.box-header -->
+
+				<div class="box-body">
+
+
+					<xp:text escape="true" id="title"
+						value="#{javascript:@DbTitle();}" tagName="h1">
+					</xp:text>
+					<xp:table>
+						<xp:tr>
+							<xp:td>
+								<xp:label value="Incident Numer"
+									id="label2" styleClass="titleLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:label id="label1" value="Title"
+									styleClass="titleLabel">
+								</xp:label>
+							</xp:td>
+
+							<xp:td>
+								<xp:label id="label3" value="Status"
+									styleClass="titleLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:label value="Date" id="label4"
+									styleClass="titleLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:label value="Resolver" id="label5"
+									styleClass="titleLabel">
+								</xp:label>
+							</xp:td>
+
+							<xp:td>
+								<xp:label value="OPEN" id="label7"
+									styleClass="titleLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:label value="PUT" id="label8"
+									styleClass="titleLabel">
+								</xp:label>
+							</xp:td>
+							<xp:td>
+								<xp:label value="CLOSE" id="label9"
+									styleClass="titleLabel">
+								</xp:label>
+							</xp:td>
+
+						</xp:tr>
+						<xp:repeat id="repeat1" rows="30"
+							value="#{view1}" var="viewEntry">
+							<xp:tr styleClass="whiteColor">
+								<xp:td>
+									<xp:text escape="true"
+										value="#{viewEntry.IncidentNum}">
+									</xp:text>
+								</xp:td>
+
+								<xp:td style="width:35%">
+									<xp:link escape="true" id="link1"
+										text="#{javascript:viewEntry.getDocument().getItemValueString('Title');}">
+										<xp:this.value><![CDATA[#{javascript:"./xpTroubleTicketDetails.xsp?action=openDocument&documentId="+viewEntry.getDocument().getUniversalID()}]]></xp:this.value>
+									</xp:link>
+
+									<xp:text escape="true"
+										id="SensorNum"
+										value="#{javascript:'Sensor:'+viewEntry.getColumnValue('SensorNum');}"
+										tagName="h4">
+									</xp:text>
+									<xp:text escape="true" id="UNID"
+										value="#{javascript:viewEntry.getDocument().getUniversalID();}"
+										style="display:none;">
+									</xp:text>
+								</xp:td>
+
+								<xp:td>
+									<xp:image id="image1">
+										<xp:this.url><![CDATA[#{javascript:
+var status = viewEntry.getColumnValue('Status');
+
+switch(status) {
+    case '':
+        return '/vwicn115.gif';
+        break;
+    case 'Open':
+        return '/vwicn115.gif';
+        break;        
+     case 'Put':
+        return '/vwicn120.gif';
+        break;       
+     case 'Close':
+        return '/vwicn114.gif';
+        break;        
+
+    default:
+        return '/vwicn115.gif';
+} 
+
+
+}]]></xp:this.url>
+									</xp:image>
+									<xp:label
+										value="#{javascript:viewEntry.getColumnValue('Status');}"
+										id="label6">
+									</xp:label>
+								</xp:td>
+								<xp:td>
+									<xp:text escape="true" id="Date"
+										value="#{viewEntry.Date}">
+									</xp:text>
+								</xp:td>
+								<xp:td>
+									<xp:text escape="true" id="Resolver"
+										value="#{viewEntry.Resolver}">
+									</xp:text>
+								</xp:td>
+								<xp:td>
+
+									<xp:link escape="true" text="OPEN"
+										id="link_Open">
+										<xp:eventHandler event="onclick"
+											submit="true" refreshMode="complete">
+											<xp:this.script><![CDATA[Publish("#red");]]></xp:this.script>
+											<xp:this.action><![CDATA[#{javascript:var client = sessionScope.client;
+if(client){
+	var builder = new org.opencode4workspace.builders.AppMessageBuilder();
+	builder.setActorAvatar("http://xpages.jp/")
+	builder.setActorName("Trouble Ticket Admin")
+	builder.setActorUrl("http://xpages.jp")
+	builder.setColor("#FF0000");
+	builder.setMessageTitle("Hackathon Trouble Ticket System");
+
+	var docEntry:NotesDocument = viewEntry.getDocument();	
+	var SensorNum = docEntry.getItemValueString("SensorNum");
+	var Trouble = docEntry.getItemValueString("Trouble");
+	var IncidentNum = docEntry.getItemValueString("IncidentNum");
+	var unid = docEntry.getUniversalID();
+	//var bmdb = bluemixContext.getDataService().findDatabaseName();
+	builder.setMessage('sensor id: '+SensorNum + '\n' + 'The content of the trouble is '+Trouble+'.\n' + 
+	'incident number is '+IncidentNum+'.\n'+
+	'https://hackathonxpages.mybluemix.net/TroubleTicketApp.nsf/xpTroubleTicketDetails.xsp?documentId='+unid+'&action=openDocument');
+	
+	var message = builder.build();
+	var spaceId = "58ab2f3be4b0159c3439270c";	// @Todo Hardcode spaceId
+	var response = client.postMessageToSpace(message, spaceId);
+
+}}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:link>
+								</xp:td>
+								<xp:td>
+
+									<xp:link escape="true" text="PUT"
+										id="link_Put">
+										<xp:eventHandler event="onclick"
+											submit="false">
+											<xp:this.script><![CDATA[var x = document.getElementById("#{id:UNID}").innerHTML;
+var url = 'https://connecthackathon2017.mybluemix.net/putMessage?docuid='+x;
+window.open(url,'blank');
+]]></xp:this.script>
+										</xp:eventHandler>
+									</xp:link>
+								</xp:td>
+								<xp:td>
+
+									<xp:link escape="true" text="CLOSE"
+										id="link_Close">
+										<xp:eventHandler event="onclick"
+											submit="true" refreshMode="complete">
+											<xp:this.script><![CDATA[Publish("#green");]]></xp:this.script>
+											<xp:this.action><![CDATA[#{javascript:var client = sessionScope.client;
+if(client){
+	var builder = new org.opencode4workspace.builders.AppMessageBuilder();
+	builder.setActorAvatar("http://xpages.jp/")
+	builder.setActorName("Trouble Ticket Admin")
+	builder.setActorUrl("http://xpages.jp")
+	builder.setColor("#00FF00");
+	builder.setMessageTitle("Hackathon Trouble Ticket System");
+
+	var docEntry:NotesDocument = viewEntry.getDocument();	
+	var SensorNum = docEntry.getItemValueString("SensorNum");
+	var Trouble = docEntry.getItemValueString("Trouble");
+	var IncidentNum = docEntry.getItemValueString("IncidentNum");
+	var unid = docEntry.getUniversalID();
+	//var bmdb = bluemixContext.getDataService().findDatabaseName();
+	builder.setMessage('incident has been closed. Incident# is'+IncidentNum+'.\n'+
+	'https://hackathonxpages.mybluemix.net/TroubleTicketApp.nsf/xpTroubleTicketDetails.xsp?documentId='+unid+'&action=openDocument');
+	
+	var message = builder.build();
+	var spaceId = "58ab2f3be4b0159c3439270c";	// @Todo Hardcode spaceId
+	var response = client.postMessageToSpace(message, spaceId);
+	
+	docEntry.replaceItemValue("Status", "Close");
+	docEntry.save();
+
+}}]]></xp:this.action>
+										</xp:eventHandler>
+									</xp:link>
+								</xp:td>
+
+
+							</xp:tr>
+
+						</xp:repeat>
+
+					</xp:table>
+
+
+					<xp:button value="Connect to Watson Workspace" id="button1">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="complete">
+							<xp:this.action><![CDATA[#{javascript:var endpoint = new org.opencode4workspace.endpoints.WWAuthenticationEndpoint();
+var userToken = "";
+var appId = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";	// @Todo Hardcode appId
+var appSecret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";	// @Todo Hardcode appSecret
+var client = new org.opencode4workspace.WWClient.buildClientApplicationAccess(appId, appSecret, endpoint);
+if(client){
+	client.authenticate();
+	sessionScope.client = client;
+	view.postScript("alert('Connected and authenticated to WWS.')");
+}
+}]]></xp:this.action>
+						</xp:eventHandler>
+					</xp:button>
+				</div>
+			</xp:panel>
+		</xp:this.facets>
+	</xc:ccLayout>
+</xp:view>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.6" replicaid="492580DB005DD8E0" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="632" sequence="10" unid="A1096F2E7AA26E01492580CD00784786">
+<created><datetime>20170221T065346,30+09</datetime></created>
+<modified><datetime>20170307T020510,26+09</datetime></modified>
+<revised><datetime>20170221T070539,57+09</datetime></revised>
+<lastaccessed><datetime>20170307T020510,26+09</datetime></lastaccessed>
+<addedtofile><datetime>20170307T020510,26+09</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Kazunori Tatsuki/O=Ktrick</name></updatedby>
+<wassignedby><name>CN=Kazunori Tatsuki/O=Ktrick</name></wassignedby>
+<item name="$Comment" sign="true"><text>UZH Nachbau</text></item>
+<item name="$Flags"><text>34567Cg~`</text></item>
+<item name="$TITLE" sign="true"><text>adminlte.theme</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item>
+
+
+<item name="$FileNames" sign="true"><text>adminlte.theme</text></item>
+<item name="$CSSFiles"><textlist><text>bootstrap/css/bootstrap.min.css</text><text>plugins/datatables/dataTables.bootstrap.css</text><text>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css</text><text>https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css</text><text>dist/css/AdminLTE.min.css</text><text>dist/css/skins/skin-blue.min.css</text><text>plugins/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css</text><text>custom/css/custom.css</text></textlist></item></note>

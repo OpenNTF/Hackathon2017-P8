@@ -1,0 +1,17 @@
+@media screen and (max-width: 768px) {
+    .table-sp,
+    .table-sp tbody,
+    .table-sp thead,
+    .table-sp tr,
+    .table-sp td,
+    .table-sp th {display:block;}
+ 
+    .table-sp th {width:auto;}
+}
+
+body {
+margin: 10px;
+padding: 0;
+}
+
+h1{background-color: #d5eaff;margin: 10px;}
